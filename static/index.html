@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101415" />
+    <title>Credit Risk Analyzer | Signal Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Signal Desk home"
+        ><span class="brand-mark">CR</span
+        ><span
+          ><strong>Signal Desk</strong
+          ><small>credit risk intelligence</small></span
+        ></a
+      >
+      <div class="topbar-meta">
+        <span class="system-pill"><i></i> Model online</span>
+      </div>
+    </header>
+    <main id="top">
+      <section class="intro reveal">
+        <div>
+          <p class="kicker"><span>01</span> Underwriting workspace</p>
+          <h1>Read the risk<br /><em>before it lands.</em></h1>
+          <p class="intro-copy">
+            A focused credit assessment desk for turning applicant signals into
+            a clear, explainable decision.
+          </p>
+        </div>
+        <div class="intro-stamp" aria-label="Assessment status">
+          <span class="stamp-line">LOCAL INFERENCE</span><strong>FASTAPI</strong
+          ><small>Private by design</small>
+        </div>
+      </section>
+      <section class="workspace reveal" id="assessment">
+        <form class="panel form-panel" id="riskForm">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Applicant profile</p>
+              <h2>Build a case file</h2>
+            </div>
+            <span class="step-count">01 <i>/</i> 02</span>
+          </div>
+          <div class="quick-start">
+            <span>Quick start</span
+            ><button type="button" class="preset" data-preset="steady">
+              Steady profile</button
+            ><button type="button" class="preset" data-preset="watch">
+              Watch list
+            </button>
+          </div>
+          <fieldset>
+            <legend>Applicant</legend>
+            <div class="field-grid">
+              <label class="field"
+                ><span>Age</span
+                ><input
+                  name="person_age"
+                  type="number"
+                  min="18"
+                  max="100"
+                  placeholder="30"
+                  required
+              /></label>
+              <label class="field"
+                ><span>Annual income <b>USD</b></span
+                ><input
+                  name="person_income"
+                  type="number"
+                  min="0"
+                  placeholder="60,000"
+                  required
+              /></label>
+              <label class="field"
+                ><span>Home ownership</span
+                ><select name="person_home_ownership" required>
+                  <option value="">Choose status</option>
+                  <option value="RENT">Rent</option>
+                  <option value="OWN">Own</option>
+                  <option value="MORTGAGE">Mortgage</option>
+                  <option value="OTHER">Other</option>
+                </select></label
+              >
+              <label class="field"
+                ><span>Employment length <b>years</b></span
+                ><input
+                  name="person_emp_length"
+                  type="number"
+                  min="0"
+                  step="0.1"
+                  placeholder="5"
+                  required
+              /></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Loan request</legend>
+            <div class="field-grid">
+              <label class="field"
+                ><span>Loan intent</span
+                ><select name="loan_intent" required>
+                  <option value="">Choose intent</option>
+                  <option value="PERSONAL">Personal</option>
+                  <option value="EDUCATION">Education</option>
+                  <option value="MEDICAL">Medical</option>
+                  <option value="VENTURE">Venture</option>
+                  <option value="HOMEIMPROVEMENT">Home improvement</option>
+                  <option value="DEBTCONSOLIDATION">Debt consolidation</option>
+                </select></label
+              >
+              <label class="field"
+                ><span>Loan grade</span
+                ><select name="loan_grade" required>
+                  <option value="">Choose grade</option>
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                  <option>D</option>
+                  <option>E</option>
+                  <option>F</option>
+                  <option>G</option>
+                </select></label
+              >
+              <label class="field"
+                ><span>Loan amount <b>USD</b></span
+                ><input
+                  name="loan_amnt"
+                  type="number"
+                  min="0"
+                  placeholder="10,000"
+                  required
+              /></label>
+              <label class="field"
+                ><span>Interest rate <b>%</b></span
+                ><input
+                  name="loan_int_rate"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="12.5"
+                  required
+              /></label>
+              <label class="field full"
+                ><span>Loan / income ratio <b>decimal</b></span
+                ><input
+                  name="loan_percent_income"
+                  type="number"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  placeholder="0.17"
+                  required
+                /><small class="field-hint">17% of income = 0.17</small></label
+              >
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Credit history</legend>
+            <div class="field-grid">
+              <label class="field"
+                ><span>Default on file</span
+                ><select name="cb_person_default_on_file" required>
+                  <option value="">Choose status</option>
+                  <option value="N">No</option>
+                  <option value="Y">Yes</option>
+                </select></label
+              >
+              <label class="field"
+                ><span>Credit history <b>years</b></span
+                ><input
+                  name="cb_person_cred_hist_length"
+                  type="number"
+                  min="0"
+                  placeholder="8"
+                  required
+              /></label>
+            </div>
+          </fieldset>
+          <div id="errorBox" class="error-box" role="alert" hidden></div>
+          <button class="analyze-button" id="analyzeButton" type="submit">
+            <span id="buttonText">Run risk assessment</span
+            ><span id="loadingSpinner" class="spinner" hidden></span
+            ><span class="button-arrow">↗</span>
+          </button>
+          <p class="privacy-note">
+            <span>✦</span> Values are sent to your local prediction service
+            only.
+          </p>
+        </form>
+        <aside class="panel result-panel" aria-live="polite">
+          <div class="panel-heading result-heading">
+            <div>
+              <p class="eyebrow">Decision signal</p>
+              <h2>Assessment output</h2>
+            </div>
+            <span class="live-label"><i></i> LIVE</span>
+          </div>
+          <div class="empty-state" id="emptyState">
+            <div class="radar"><span></span><span></span><span></span></div>
+            <p class="eyebrow">Awaiting case file</p>
+            <h3>Nothing is hidden<br />in the noise.</h3>
+            <p>
+              Complete the profile and the model will surface the default signal
+              here.
+            </p>
+          </div>
+          <div id="resultState" hidden>
+            <div class="result-hero">
+              <div class="risk-dial" id="riskGauge" style="--risk: 0deg">
+                <div>
+                  <strong id="probability">0%</strong
+                  ><span>default probability</span>
+                </div>
+              </div>
+              <div class="verdict">
+                <span class="eyebrow">Model verdict</span
+                ><strong id="riskBadge" class="risk-badge low">LOW RISK</strong>
+                <p id="riskMessage">Below decision threshold.</p>
+              </div>
+            </div>
+            <div class="risk-scale">
+              <div>
+                <span>LOW</span><span>DECISION THRESHOLD</span><span>HIGH</span>
+              </div>
+              <div class="scale-track">
+                <i id="scaleThreshold"></i><b id="scaleMarker"></b>
+              </div>
+            </div>
+            <div class="metric-row">
+              <div>
+                <span>Probability</span
+                ><strong id="metricProbability">—</strong>
+              </div>
+              <div>
+                <span>Threshold</span><strong id="metricThreshold">—</strong>
+              </div>
+              <div>
+                <span>Prediction</span><strong id="metricPrediction">—</strong>
+              </div>
+            </div>
+            <div class="signal-note">
+              <span class="signal-icon">↗</span>
+              <div>
+                <p class="eyebrow">Signal readout</p>
+                <strong id="summaryRisk">Awaiting signal</strong>
+                <p id="summaryCopy">The model has completed its assessment.</p>
+              </div>
+            </div>
+            <button type="button" class="reset-button" id="newAssessment">
+              Clear case <span>↻</span>
+            </button>
+          </div>
+        </aside>
+      </section>
+      <section class="method reveal" id="about">
+        <div>
+          <p class="kicker"><span>02</span> How the signal moves</p>
+          <h2>From profile<br />to decision.</h2>
+        </div>
+        <div class="method-steps">
+          <div>
+            <b>01</b><strong>Capture</strong
+            ><span>Applicant and loan context</span>
+          </div>
+          <i>→</i>
+          <div>
+            <b>02</b><strong>Score</strong><span>Calibrated scoring model</span>
+          </div>
+          <i>→</i>
+          <div>
+            <b>03</b><strong>Classify</strong
+            ><span>Probability meets threshold</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>CR / SIGNAL DESK</span><span>Local ML inference · v1.0</span>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
