@@ -6,6 +6,9 @@ services:
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /
     autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
   - type: static
     name: credit-risk-frontend
     staticPublishPath: ./static
