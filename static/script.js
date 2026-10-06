@@ -9,7 +9,7 @@ const newAssessment = document.querySelector("#newAssessment");
 const riskGauge = document.querySelector("#riskGauge");
 const scaleMarker = document.querySelector("#scaleMarker");
 const scaleThreshold = document.querySelector("#scaleThreshold");
-const API_URL = "https://credit-risk-predictor-rem3.onrender.com/";
+const API_URL = "https://credit-risk-predictor-rem3.onrender.com";
 
 const presets = {
   steady: {
